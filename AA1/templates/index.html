@@ -50,17 +50,42 @@
 				{% endif %}
 			</div>
 
-			<div class="info-section text-white {% if blockData %}active{% endif %} d-flex flex-column" id="infoSection">
-				
+			<div class="info-section text-white {% if blockData %}active{% endif %} " id="infoSection">
 				{% if blockData %}
-				<div class="container  d-flex justify-content-center align-items-center ml-0 pl-0" style="margin-left: 0%;" >
+				<div id="info-title" >
 					<h3 >Block Data</h3>
 				</div>
-				<div id="senderData">Sender: {{ blockData["sender"] }}</div>
-				<div id="receiverData">Receiver: {{ blockData["receiver"] }}</div>
-				<div id="amountData">Amount: {{blockData["amount"]}}</div>
-                <!--Add date flied-->
-				<div id="dateData">Date: </div>
+				<div id="info-data">
+					<div class="d-flex justify-content-around w-100">
+						<div id="data">
+							<div id="senderData">
+								<img src="../static/assets/sender.png"> Sender: {{ blockData["sender"] }}
+							</div>
+							<div id="receiverData">
+								<img src="../static/assets/receiver.png"> Receiver: {{ blockData["receiver"] }}
+							</div>
+							<div id="amountData">
+								<img src="../static/assets/amount.png"> Amount: {{blockData["amount"]}}
+							</div>
+							<!--Add date filed-->
+							<div id="Date">
+								<img src="../static/assets/calender.png"> Date: 
+							</div>
+
+						</div>
+						<div class="box-container">
+							<div class="box rotate">
+								<div class="box-front">Block</div>
+								<div class="box-back"></div>
+								<div class="box-right"></div>
+								<div class="box-left"></div>
+								<div class="box-top"></div>
+								<div class="box-bottom"></div>
+							</div>
+						</div>
+					</div>
+					<div id="containerLg"></div>
+				</div>
 				{% endif %}
 			</div>
 		</div>
@@ -72,11 +97,9 @@
 			var yAngle = 0;
 
 			data = [];
-
 			function startDrag(event) {
 				isDragging = true;
 			}
-
 			function drag(event) {
 				if (isDragging) {
 					var dragX =

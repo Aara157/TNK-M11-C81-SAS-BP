@@ -31,6 +31,7 @@
 			</div>
 
 			<div id="all-boxes">
+				<!-- Check if blockData exists and then show the box-container div-->
 				{% if blockData %}
 				<div class="box-container">
 					<div
@@ -51,6 +52,7 @@
 			</div>
 
 			<div class="info-section text-white {% if blockData %}active{% endif %} " id="infoSection">
+				<!-- Check if blockData exists and then show the following content-->
 				{% if blockData %}
 				<div id="info-title" >
 					<h3 >Block Data</h3>
@@ -58,6 +60,7 @@
 				<div id="info-data">
 					<div class="d-flex justify-content-around w-100">
 						<div id="data">
+							<!--Display sender, receiver, amount using jinja-->
 							<div id="senderData">
 								<img src="../static/assets/sender.png"> Sender: {{ blockData["sender"] }}
 							</div>
@@ -67,14 +70,6 @@
 							<div id="amountData">
 								<img src="../static/assets/amount.png"> Amount: {{blockData["amount"]}}
 							</div>
-							<div id="Date">
-								<img src="../static/assets/calender.png"> Date: {{blockData["date"]}}
-							</div>
-							<!--Create a new form to send GET request, so that page shows only the form and data gets reset-->
-							<form action=" " method="POST" id="form2" class="d-flex justify-content-center align-items-center mt-4">
-								<button type=" " class="btn btn-primary">Reset</button>
-							</form>
-
 						</div>
 						<div class="box-container">
 							<div class="box rotate">
